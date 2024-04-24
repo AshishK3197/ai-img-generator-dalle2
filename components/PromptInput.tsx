@@ -7,7 +7,7 @@ import useSWR from "swr";
 function PromptInput() {
   const [input, setInput] = useState("");
 
-  const {data : suggestion , error , isLoading} = useSWR('/api/suggestion' , fetchSuggestionFromChatGPT , {
+  const {data : suggestion , isLoading , mutate , isValidating} = useSWR('/api/suggestion' , fetchSuggestionFromChatGPT , {
     revalidateOnFocus : false,
   });
 
